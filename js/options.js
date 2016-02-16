@@ -169,7 +169,7 @@ function get_yc_grade(username, password, term) {
 	            }
 	            jd = (zcj/zxf).toFixed(3);
 	            if(!isNaN(jd)) {
-	            	grades += '<tr><td colspan="2">'+'本学期平均学分为'+'</td><td>'+jd+'</td></tr>';
+	            	grades += '<tr><td colspan="2">'+'本学期平均绩点为'+'</td><td>'+jd+'</td></tr>';
 	            }
 	            grades += '</tbody></table>';
 		        $("#grade_list").html(grades);
