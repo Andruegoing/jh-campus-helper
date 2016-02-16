@@ -1,0 +1,41 @@
+{
+   "name": "\u7cbe\u5f18\u6821\u56ed\u52a9\u624b",
+   "version": "0.0.4",
+   "manifest_version":2,
+
+   "content_scripts": [ {
+      "exclude_globs": [  ],
+      "include_globs": [ "http://www.ycjw.zjut.edu.cn/*", "http://172.16.7.221/*", "http://172.16.7.194/*", "http://172.16.7.86/*", "http://172.16.7.84/*", "http://172.16.7.83/*"],
+      "js": [ "./js/script.min.js" ],
+      "matches": [ "http://www.ycjw.zjut.edu.cn/*", "http://172.16.7.221/*", "http://172.16.7.194/*", "http://172.16.7.86/*", "http://172.16.7.84/*", "http://172.16.7.83/*"],
+      "run_at": "document_idle"
+   } ],
+
+   "converted_from_user_script": true,
+
+   "description": "\u6D59\u6C5F\u5DE5\u4E1A\u5927\u5B66\u7CBE\u5F18\u6821\u56ED\u52A9\u624B\uFF0C\u5FEB\u901F\u67E5\u6210\u7EE9\uFF0C\u67E5\u8BFE\u8868\uFF0C\u8FD8\u6709\u66F4\u591A\u9690\u85CF\u529F\u80FD",
+
+   "icons": {
+      "128": "imgs/icon-128.png",
+      "16": "imgs/icon-16.png",
+      "32": "imgs/icon-32.png",
+      "48": "imgs/icon-48.png"
+   },
+
+   "permissions": [
+          "storage","http://*.zjut.com/*"
+    ],
+
+   "background": {
+      "page": "background.html",
+      "persistent": true
+   },
+
+   "options_page": "options.html",
+
+   "browser_action": {  
+    "default_icon": "imgs/icon-48.png" ,
+    "default_title": "\u6d59\u6c5f\u5de5\u4e1a\u5927\u5b66\u7cbe\u5f18\u6821\u56ed\u52a9\u624b",
+    "default_popup": "popup.html"
+   }
+}

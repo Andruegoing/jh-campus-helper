@@ -1,0 +1,328 @@
+<html lang="cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>精弘校园助手-选项页</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/option.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                
+                <a class="navbar-brand" href="#index"><div style="float:left;"><img src="imgs/logo.png" class="fa fa-fw icon" style="margin-right: 10px;margin-bottom: 2px;"></img>精弘校园助手<span id="version"></span></div></a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li>
+                    <a href="#"><i class="fa fa-user"></i> 未绑定 </a>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav" id="my-tab">
+                    <li>
+                        <a href="#index"><i class="fa fa-fw fa-dashboard"></i> 常规</a>
+                    </li>
+                    <li>
+                        <li class="nav-header"><i class="fa fa-fw fa-search"></i> 校园查询 <i class="fa fa-fw fa-caret-down"></i></li>
+                        <li id="search" class="">
+                            <li class="sub-nav">
+                                <a href="#grade"><i class="fa fa-fw fa-bar-chart-o"></i> 成绩</a>
+                            </li>
+                            <li class="sub-nav">
+                                <a href="#class"><i class="fa fa-fw fa-table"></i> 课表</a>
+                            </li>
+                        </li>
+                    </li>
+                    <li>
+                        <a href="#account"><i class="fa fa-fw fa-user"></i> 账号设置</a>
+                    </li>
+
+                    <li>
+                        <a href="#setting"><i class="fa fa-fw fa-gear"></i> 偏好设置</a>
+                    </li>
+
+                    <li>
+                        <a href="#about"><i class="fa fa-fw fa-info"></i> 关于</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+        <div class="tab-content">
+            <div class="tab-pane fade in active" id="index">
+                <div id="page-wrapper">
+                    <div class="container-fluid">
+                    <!-- Page Heading -->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h1 class="page-header">
+                                    常规
+                                    <small>插件设置</small>
+                                </h1>
+                            </div>
+                            <ul>
+                                <div class="col-lg-12" id="insider_net">
+                                    <h4>
+                                        服务器设置
+                                        <small>一键前往原创内网服务器设置</small>
+                                    </h4>
+                                    <button type="button" option="83" class="btn btn-default">83</button>
+                                    <button type="button" option="84" class="btn btn-default">84</button>
+                                    <button type="button" option="86" class="btn btn-default">86(默认)</button>
+                                </div>
+                                <div class="col-lg-12" id="script_function">
+                                    <h4>
+                                        原创辅助功能
+                                        <small>是否开启原创的辅助功能</small>
+                                    </h4>
+                                    <button type="button" option="off" class="btn btn-default">关闭</button>
+                                    <button type="button" option="on" class="btn btn-default">开启(默认)</button>
+                                </div>
+                            </ul>
+                        </div>
+                    <!-- /.row -->
+                    </div>
+                <!-- /.container-fluid -->
+                </div>
+                <!-- /#page-wrapper -->
+            </div>
+            <div class="tab-pane fade" id="grade">
+                <div id="page-wrapper">
+                    <div class="container-fluid">
+                    <!-- Page Heading -->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h1 class="page-header">
+                                    成绩
+                                    <small>查询原创成绩</small>
+                                </h1>
+                            </div>
+                            <ul>
+                            <div class="col-lg-12" id="query_yc_grade">
+                                <h4>
+                                    学期
+                                    <small>设置查询成绩的学期</small>
+                                </h4>
+                                <select id="grade_term" class="form-control left" style="width:300px;float:left;">
+                                    <option disabled="disabled" value="＝所有学期＝">＝所有学期＝</option>
+                                </select>
+                                <button type="button" class="btn btn-primary btn-search">查询</button>
+                                <div class="alert alert-warning status" role="alert" style="display: none;">
+                                    加载中……
+                                </div>
+                                <table id="grade_list" class="query-table"></table>
+                            </div>
+
+                            </ul>
+                    <!-- /.row -->
+                        </div>
+                <!-- /.container-fluid -->
+                    </div>
+                <!-- /#page-wrapper -->
+                </div>
+            </div>
+            <div class="tab-pane fade" id="class">
+                <div id="page-wrapper">
+                    <div class="container-fluid">
+                    <!-- Page Heading -->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h1 class="page-header">
+                                    课表
+                                    <small>查询原创课表</small>
+                                </h1>
+                            </div>
+                            <ul>
+                            <div class="col-lg-12"  id="query_yc_class">
+                                <h4>
+                                    学期
+                                    <small>设置查询课表的学期</small>
+                                </h4>
+                                <select id="class_term" class="form-control left" style="width:300px;float:left;">
+                                    <option disabled="disabled" value="＝所有学期＝">＝所有学期＝</option>
+                                </select>
+                                <button type="button" class="btn btn-primary btn-search">查询</button>
+                                <div class="alert alert-warning status" role="alert" style="display: none;">
+                                    加载中……
+                                </div>
+                                <table id="class_list" class="query-table"></table>
+                            </div>
+
+                            </ul>
+
+                        </div>
+                    <!-- /.row -->
+                    </div>
+                <!-- /.container-fluid -->
+                </div>
+                <!-- /#page-wrapper -->
+            </div>
+            <div class="tab-pane fade" id="account">
+                <div id="page-wrapper">
+                    <div class="container-fluid">
+                    <!-- Page Heading -->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h1 class="page-header">
+                                    账号设置
+                                    <small>设置您的账号</small>
+                                </h1>
+                            </div>
+                            <ul>
+                            <div class="col-lg-12" id="yc_bindng">
+                                <h4>
+                                    原创账号
+                                    <small>这是您的原创教务的账号</small>
+                                </h4>
+                                <br>
+                                <div class="form-group">
+                                <label>用户名:</label><input class="form-control" id="yc_account" placeholder="请输入您的账号" style="width:300px;">
+                                <br>
+                                <label>密　码:</label><input class="form-control" id="yc_password" type="password" placeholder="请输入您的密码" style="width:300px;">
+                                </div>
+                                <div class="alert alert-warning status" role="alert" style="display: none;">
+                                    加载中……
+                                </div>
+                                <button type="button" class="btn btn-primary">绑定</button>
+                            </div>
+                            </ul>
+                        </div>
+                    <!-- /.row -->
+                    </div>
+                <!-- /.container-fluid -->
+                </div>
+                <!-- /#page-wrapper -->
+            </div>
+            <div class="tab-pane fade" id="setting">
+                <div id="page-wrapper">
+                    <div class="container-fluid">
+                    <!-- Page Heading -->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h1 class="page-header">
+                                    偏好设置
+                                    <small>图标弹出页面内容显示设置</small>
+                                </h1>
+                            </div>
+                            <ul>
+                                <div class="col-lg-12" id="display_bbs">
+                                    <h4>
+                                        一键前往精弘论坛
+                                    </h4>
+                                    <button type="button" option="on" class="btn btn-default display_bbs">显示</button>
+                                    <button type="button" option="off" class="btn btn-default display_bbs">不显示</button>
+                                </div>
+                                <div class="col-lg-12" id="display_outsider_net">
+                                    <h4>
+                                        一键前往原创（外网）
+                                    </h4>
+                                    <button type="button" option="on" class="btn btn-default display_outsider_net">显示</button>
+                                    <button type="button" option="off" class="btn btn-default display_outsider_net">不显示</button>
+                                </div>
+                                <div class="col-lg-12" id="display_insider_net">
+                                    <h4>
+                                        一键前往原创（内网）
+                                    </h4>
+                                    <button type="button" option="on" class="btn btn-default display_insider_net">显示</button>
+                                    <button type="button" option="off" class="btn btn-default display_insider_net">不显示</button>
+                                </div>
+                            </ul>
+                        </div>
+                    <!-- /.row -->
+                    </div>
+                <!-- /.container-fluid -->
+                </div>
+                <!-- /#page-wrapper -->
+            </div>
+            <div class="tab-pane fade" id="about">
+                <div id="page-wrapper">
+                    <div class="container-fluid">
+                    <!-- Page Heading -->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h1 class="page-header">
+                                    关于
+                                </h1>
+                            </div>
+                            <ul>
+                            <div class="col-lg-12">
+                                <h4 class="page-header">
+                                    原创辅助功能介绍
+                                </h4>
+                                <p>1. 登录界面自动选择登录类型为:[学生]</p>
+                                <p>2. 进入成绩查询页面自动显示当前学期的的所有科目成绩</p>
+                                <p>3. 自动计算当前页面平均绩点(Beta)</p>
+                                <p>4. 自动评教勾选10分(手动提交评价结果)</p>
+                                <p>5. 其他隐藏技能</p>
+                            </div>
+
+                            <div class="col-lg-12">
+                                <h4 class="page-header">
+                                    声明
+                                </h4>
+                                <p>原创辅助功能最原始的代码是来自0xE14211同学的浙江工业大学原创教务系统助手(浏览器插件)</p>
+                                <p>http://zhan.renren.com/h5/entry/3602888497998230721</p>
+                                <p>因为里面部分代码过老以及部分代码不便于现在的情况，于是我将这个代码进行二次开发，试图修复这些问题并且希望添加更多功能，比如添加设置和浏览器图标什么的,欢迎小伙伴们给我更多反馈和建议</p>
+                                <p>项目 GitHub 页 <a href="https://github.com/CRanCN/ycjw/" target="_blank">CRanCN/ycjw</a>，可以在这边反馈问题或提供建议。</p>
+                                <!-- <p>最后再次感谢大家的支持。</p> -->
+                                <p>※ 浙江工业大学原创教务系统助手 for chrome</p>
+                                <p style="text-align:right">作者: @cccRaim from 精弘网络<br>chenran@zjut.com</p>
+                            </div>
+
+                            </ul>
+                        </div>
+                    <!-- /.row -->
+                    </div>
+                <!-- /.container-fluid -->
+                </div>
+                <!-- /#page-wrapper -->
+            </div>
+        </div>
+        
+
+
+        
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/functions.js"></script>
+    <script src="js/options.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.js"></script>
+
+</body>
+
+</html>
