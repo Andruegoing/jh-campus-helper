@@ -1,12 +1,12 @@
 {
    "name": "\u7cbe\u5f18\u6821\u56ed\u52a9\u624b",
-   "version": "0.0.4",
+   "version": "0.0.5",
    "manifest_version":2,
 
    "content_scripts": [ {
       "exclude_globs": [  ],
       "include_globs": [ "http://www.ycjw.zjut.edu.cn/*", "http://172.16.7.221/*", "http://172.16.7.194/*", "http://172.16.7.86/*", "http://172.16.7.84/*", "http://172.16.7.83/*"],
-      "js": [ "./js/script.min.js" ],
+      "js": [ "./js/jquery.min.js", "./js/script.min.js" ],
       "matches": [ "http://www.ycjw.zjut.edu.cn/*", "http://172.16.7.221/*", "http://172.16.7.194/*", "http://172.16.7.86/*", "http://172.16.7.84/*", "http://172.16.7.83/*"],
       "run_at": "document_idle"
    } ],

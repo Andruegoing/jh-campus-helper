@@ -20,6 +20,8 @@ $(document).ready(function(){
 
     $("#grade_term").val(get_option("grade_term"));
     $("#class_term").val(get_option("class_term"));
+
+    $("#class_list").html(get_option("class_table"));
 })
 
 $('#my-tab a').click(function (e) {
@@ -42,6 +44,10 @@ $('.navbar-brand').click(function (e) {
 
 $("div[class='col-lg-12'] button").click(function() {
     if ($(this).hasClass("btn-primary") || !$(this).attr("option")) return false;
+
+    if($(this).parent().attr("id") == "save_class_table" && $(this).attr("option") == "off") {
+    	$("#class_list").html("");
+    }
 
     set_default($(this).siblings('button'));
     set_primary($(this));
@@ -218,6 +224,12 @@ function get_yc_class(username, password, term) {
 	            }
 
 	            $("#class_list").html(make_table(lists));
+	            if(get_option('save_class_table') == "on") {
+	            	set_option('class_table', make_table(lists));
+	            }
+	            else {
+	            	set_option('class_table', '');
+	            }
 			}
 			$("div[id='query_yc_class'] button").siblings('.status').hide();
 		},

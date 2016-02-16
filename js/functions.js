@@ -15,6 +15,8 @@ var defaultOptions = {
     display_bbs: "on",
     display_outsider_net: "on",
     display_insider_net: "on",
+    save_class_table: "on",
+    class_table: "",
     page: "#index",
     yc_account: "",
     yc_password: "",
