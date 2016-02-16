@@ -7,7 +7,7 @@
       "exclude_globs": [  ],
       "include_globs": [ "http://www.ycjw.zjut.edu.cn/*", "http://172.16.7.221/*", "http://172.16.7.194/*", "http://172.16.7.86/*", "http://172.16.7.84/*", "http://172.16.7.83/*"],
       "js": [ "./js/jquery.min.js", "./js/script.min.js" ],
-      "matches": [ "http://www.ycjw.zjut.edu.cn/*", "http://172.16.7.221/*", "http://172.16.7.194/*", "http://172.16.7.86/*", "http://172.16.7.84/*", "http://172.16.7.83/*"],
+      "matches": [ "http://www.ycjw.zjut.edu.cn/*", "http://172.16.7.85/*", "http://172.16.7.86/*", "http://172.16.7.84/*", "http://172.16.7.83/*"],
       "run_at": "document_idle"
    } ],
 
