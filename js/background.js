@@ -4,7 +4,7 @@ chrome.extension.onMessage.addListener(
 	  	{	
 	  		sendResponse({
 	  			grade_term: get_option('grade_term'),
-	  			class_term: get_option('grade_term'),
+	  			class_term: get_option('class_term'),
 	  			script_function: get_option('script_function')
 	  		});
 	  	}
