@@ -1,12 +1,10 @@
 chrome.extension.onMessage.addListener(
   	function(request, sender, sendResponse) {
-  		if(request.greeting=="query")
+  		if(request.action=="get_setting")
 	  	{	
-	  		sendResponse({
-	  			grade_term: get_option('grade_term'),
-	  			class_term: get_option('class_term'),
-	  			script_function: get_option('script_function')
-	  		});
+	  		sendResponse(
+	  			get_options()
+	  		);
 	  	}
 	}
 

@@ -52,12 +52,16 @@ function get_option(t) {
     if (localStorage.getItem(t) === null) {
         localStorage.setItem(t, defaultOptions[t])
     }
-    return localStorage.getItem(t)
+    return localStorage.getItem(t);
 }
 
 function set_option(t, o, e) {
     localStorage.setItem(t, o);
     if (e) updateAll()
+}
+
+function get_options() {
+    return window.localStorage;
 }
 
 function fix_yc_class(class_info) {
