@@ -2,7 +2,7 @@ var myDate = new Date();
 var year = myDate.getFullYear();
 var lastYear = (myDate.getFullYear()-1);
 var month = myDate.getMonth()+1;
-if(month > 0 && month < 7) {
+if(month > 0 && month < 6) {
 	select_term = lastYear + "/" + year + "(1)";
 }	
 else {
@@ -15,11 +15,13 @@ var defaultOptions = {
     display_bbs: "on",
     display_outsider_net: "on",
     display_insider_net: "on",
+    grade_check: "on",
     save_class_table: "on",
     class_table: "",
     page: "#index",
     yc_account: "",
     yc_password: "",
+    old_grade: "",
     grade_term: select_term,
     class_term: select_term,
 };
@@ -62,6 +64,28 @@ function set_option(t, o, e) {
 
 function get_options() {
     return window.localStorage;
+}
+
+function grade_notify(title = '成绩更新通知', content = '您有新的成绩更新！') {
+    chrome.notifications.create("grade-update", {
+            type : "basic",
+            title : title,
+            message : content,
+            iconUrl: 'imgs/icon.png',
+            isClickable : true,
+            buttons : [{
+                    title: '查看内容'
+            	}]
+    	}, function () {}
+    );
+    set_option("lastDyn", content.ctime);
+    chrome.notifications.onButtonClicked.addListener(function (notificationId, index) {
+        if (notificationId == 'grade-update') {
+	        chrome.tabs.create({
+	            url: chrome.extension.getURL("options.html#grade")
+	        });
+    	}
+	});
 }
 
 function fix_yc_class(class_info) {
