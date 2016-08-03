@@ -9,7 +9,7 @@ chrome.extension.onMessage.addListener(
 	}
 );
 
-if(get_option('grade_check') == 'on')
+if(get_option('grade_check') == 'on' && get_option('grade_check_time') != 0)
 {
 	setInterval(function() {
 		var username = get_option('yc_account');
@@ -27,7 +27,7 @@ if(get_option('grade_check') == 'on')
 			});
 		}
 		
-	}, 1000*60*10);
+	}, 1000*60*get_option('grade_check_time'));
 }
 
 

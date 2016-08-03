@@ -103,7 +103,8 @@ function load_term(obj) {
 function get_yc_grade(username, password, term) {
 	$("div[id='query_yc_grade'] button").siblings('.status').show();
 	$.ajax({
-		url: 'http://api.zjut.com/student/scores.php',
+		//url: 'http://api.zjut.com/student/scores.php',
+		url: 'http://bbs.zjut.edu.cn/api/jhapi.php?url=http://api.zjut.com/student/scores.php',
 		async: true,
 		dataType: 'json',
 		type: 'GET',
@@ -118,7 +119,14 @@ function get_yc_grade(username, password, term) {
 				alert("用户名或密码错误");
 			}
 			else if(data['status'] == "error") {
-				alert("用户名或者密码错误服务器错误，请尝试在常规设置中切换服务器");
+				//alert("用户名或者密码错误服务器错误，请尝试在常规设置中切换服务器");
+				if(get_option("insider_net") != '86') {
+					set_option("insider_net", parseInt(get_option("insider_net"))+1);
+					get_yc_grade(username, password, term);
+				}
+				else {
+					alert("用户名或者密码错误服务器错误，请尝试在常规设置中切换服务器");
+				}
 			}
 			else if(data['status'] == "success" && data['msg'] == "没有相关信息") {
 				$("#grade_list").html("没有相关信息");
@@ -178,7 +186,7 @@ function get_yc_grade(username, password, term) {
 		},
 
 		error: function() {
-			alert("服务器错误，请尝试在常规设置中切换服务器");return -3;
+			alert("服务器错误，请尝试在常规设置中切换服务器");
 		},
 
 	});
@@ -187,7 +195,7 @@ function get_yc_grade(username, password, term) {
 function get_yc_class(username, password, term) {
 	$("div[id='query_yc_class'] button").siblings('.status').show();
 	$.ajax({
-		url: 'http://api.zjut.com/student/class.php',
+		url: 'http://bbs.zjut.edu.cn/api/jhapi.php?url=http://api.zjut.com/student/class.php',
 		async: true,
 		dataType: 'json',
 		type: 'GET',
@@ -246,7 +254,7 @@ function get_yc_class(username, password, term) {
 function check_binding(username, password) {
 	$("div[id='yc_bindng'] button").siblings('.status').show();
 	$.ajax({
-		url: 'http://api.zjut.com/student/scores.php',
+		url: 'http://bbs.zjut.edu.cn/api/jhapi.php?url=http://api.zjut.com/student/scores.php',
 		async: true,
 		dataType: 'json',
 		type: 'GET',
@@ -254,13 +262,27 @@ function check_binding(username, password) {
 
 		success: function(data, status){
 			if (!data['status']) {
-				alert("服务器错误，请尝试在常规设置中切换服务器");
+				//alert("服务器错误，请尝试在常规设置中切换服务器");
+				if(get_option("insider_net") != '86') {
+					set_option("insider_net", parseInt(get_option("insider_net"))+1);
+					check_binding(username, password);
+				}
+				else {
+					alert("用户名或者密码错误服务器错误，请尝试在常规设置中切换服务器");
+				}
 			}
 			else if(data['status'] == "error" && data['msg'] == "用户名或密码错误") {
 				alert("用户名或密码错误");
 			}
 			else if(data['status'] == "error") {
-				alert("服务器错误，请尝试在常规设置中切换服务器");
+				//alert("服务器错误，请尝试在常规设置中切换服务器");
+				if(get_option("insider_net") != '86') {
+					set_option("insider_net", parseInt(get_option("insider_net"))+1);
+					check_binding(username, password);
+				}
+				else {
+					alert("用户名或者密码错误服务器错误，请尝试在常规设置中切换服务器");
+				}
 			}
 			else if(data['status'] == "success") {
 				alert("绑定成功");
@@ -272,7 +294,14 @@ function check_binding(username, password) {
 		},
 
 		error: function() {
-			alert("服务器错误，请尝试在常规设置中切换服务器");return -3;
+			//alert("服务器错误，请尝试在常规设置中切换服务器");
+			if(get_option("insider_net") != '86') {
+				set_option("insider_net", parseInt(get_option("insider_net"))+1);
+				check_binding(username, password);
+			}
+			else {
+				alert("用户名或者密码错误服务器错误，请尝试在常规设置中切换服务器");
+			}
 		},
 
 	});
