@@ -103,8 +103,7 @@ function load_term(obj) {
 function get_yc_grade(username, password, term) {
 	$("div[id='query_yc_grade'] button").siblings('.status').show();
 	$.ajax({
-		//url: 'http://api.zjut.com/student/scores.php',
-		url: 'http://bbs.zjut.edu.cn/api/jhapi.php?url=http://api.zjut.com/student/scores.php',
+		url: 'http://api.jh.zjut.edu.cn/student/scores.php',
 		async: true,
 		dataType: 'json',
 		type: 'GET',
@@ -195,7 +194,7 @@ function get_yc_grade(username, password, term) {
 function get_yc_class(username, password, term) {
 	$("div[id='query_yc_class'] button").siblings('.status').show();
 	$.ajax({
-		url: 'http://bbs.zjut.edu.cn/api/jhapi.php?url=http://api.zjut.com/student/class.php',
+		url: 'http://api.jh.zjut.edu.cn/student/class.php',
 		async: true,
 		dataType: 'json',
 		type: 'GET',
@@ -254,7 +253,7 @@ function get_yc_class(username, password, term) {
 function check_binding(username, password) {
 	$("div[id='yc_bindng'] button").siblings('.status').show();
 	$.ajax({
-		url: 'http://bbs.zjut.edu.cn/api/jhapi.php?url=http://api.zjut.com/student/scores.php',
+		url: 'http://api.jh.zjut.edu.cn/student/scores.php',
 		async: true,
 		dataType: 'json',
 		type: 'GET',
